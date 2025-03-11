@@ -13,3 +13,110 @@
  *= require_tree .
  *= require_self
  */
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+/* 共通 */
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+.alert {
+  display: none;
+}
+
+.notice {
+  display: none;
+}
+
+.btn-primary {
+  background-color: rgba(255, 230, 0, 1);
+  border: none;
+  width: 100%;
+  text-align: center;
+  padding: 16px 0;
+}
+
+/*ログインページ*/
+.login-header-image {
+  background-image: url('background.png');
+  background-size: cover;
+  height: 40vh;
+  margin-bottom: 20px;
+}
+
+.login-container {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  width: 100%;
+}
+
+label {
+  font-size: 12px;
+}
+
+input.text, select.text {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 16px 24px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  background: rgba(244, 244, 244, 1);
+}
+
+.option {
+  width: 100%;
+  text-align: right;
+  color: #8f8f8f;
+}
+
+input.btn-primary {
+  margin-top: 20px;
+  /* position: fixed;
+  bottom: 50px; */
+}
