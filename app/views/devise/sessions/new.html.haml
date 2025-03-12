@@ -1,0 +1,15 @@
+.login-header-image
+.login-container
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text'
+    .field
+      = f.label :password
+      %br/
+      = f.password_field :password, autocomplete: "current-password", class: 'text'
+    .option
+      = render "devise/shared/links"
+    .actions
+      = f.submit "LOGIN", class: 'btn-primary'
