@@ -24,7 +24,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :profile, dependent: :destroy
+
   validates :email, presence: true, uniqueness: true
-  validates :display_name, presence: true
   validates :account_id, presence: true, uniqueness: true
+
+  def prepare_profile
+    profile || build_profile
+  end
+
 end

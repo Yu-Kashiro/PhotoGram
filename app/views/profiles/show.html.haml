@@ -1,0 +1,17 @@
+.profile-container
+  = link_to :back, class: "back-button" do
+    = image_tag 'back.png'
+
+  .profile-header
+    %p.profile-id= current_user.account_id
+
+    - if @profile.avatar.attached?
+      = image_tag 'dummy_profile.png', class: "profile-pic"
+    - else
+      = image_tag 'dummy_profile.png', class: "profile-pic"
+
+  .profile-stats
+    %h4.profile-stat Posts
+    %h4.profile-stat Follow
+    %h4.profile-stat Follower
+    %h4.profile-stat Posts
