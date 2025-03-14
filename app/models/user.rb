@@ -28,4 +28,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :account_id, presence: true, uniqueness: true
+
+  def prepare_profile
+    profile || build_profile
+  end
+
 end
