@@ -6,9 +6,11 @@
     %p.profile-id= current_user.account_id
 
     - if @profile.avatar.attached?
-      = image_tag 'dummy_profile.png', class: "profile-pic"
+      = image_tag @profile.avatar, class: "profile-pic", id: "profile-pic"
     - else
-      = image_tag 'dummy_profile.png', class: "profile-pic"
+      = image_tag 'dummy_profile.png', class: "profile-pic", id: "profile-pic"
+
+    %input{ type: "file", id: "profile-pic-input", style: "display: none;" }
 
   .profile-stats
     %h4.profile-stat Posts

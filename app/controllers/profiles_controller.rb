@@ -9,10 +9,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @profile.update(profile_params)
-      redirect_to profile_path, notice: "プロフィール画像を更新しました。"
+    if params[:avatar].present?
+      current_user.profile.avatar.attach(params[:avatar])  # 🔹 profile に avatar を設定
+      render json: { message: 'アップロード成功', url: url_for(current_user.profile.avatar) }, status: :ok
     else
-      render :edit
+      render json: { error: 'ファイルがありません' }, status: :unprocessable_entity
     end
   end
 

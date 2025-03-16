@@ -1,7 +1,0 @@
-= link_to :back do
-  = image_tag 'back.png'
-
-= form_with model: @profile, local: true do |f|
-  = f.label :avatar, "プロフィール写真"
-  = f.file_field :avatar
-  = f.submit "更新"
