@@ -1,0 +1,15 @@
+.container
+  -@posts.each do |post|
+    %p= post.user.account_id
+    %p= post.created_at
+    -# 投稿画像
+    -# いいね、コメント、シェア
+    -# 良いね数
+    %p= post.user.account_id
+    %p= post.content
+
+
+
+= link_to 'プロフィールページ', profile_path
+= link_to 'プロフィール編集ページ', edit_profile_path
+= link_to 'ログアウト', destroy_user_session_path, method: :delete
