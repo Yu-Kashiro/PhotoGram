@@ -1,0 +1,32 @@
+form {
+  width: 100%;
+}
+
+.form-container {
+  position: relative;
+  width: 100%;
+  padding-top: 20px;
+}
+
+label {
+  font-size: 12px;
+}
+
+input.text, select.text {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 16px 24px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  background: rgba(244, 244, 244, 1);
+}
+
+.option {
+  width: 100%;
+  text-align: right;
+  color: #8f8f8f;
+}
+
+input.btn-primary {
+  margin-top: 20px;
+}
