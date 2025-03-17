@@ -1,0 +1,15 @@
+/*ログインページ*/
+.login-header-image {
+  background-image: url('background.png');
+  background-size: cover;
+  height: 40vh;
+  margin-bottom: 20px;
+}
+
+.login-container {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
