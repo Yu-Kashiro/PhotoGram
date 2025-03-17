@@ -1,0 +1,20 @@
+.header
+  .header-left
+    = link_to 'cancel', posts_path, class: 'back-button'
+  .header-title Status
+  .header-right test
+
+.container
+  .profile-container
+    - if current_user.profile.avatar.attached?
+      = image_tag current_user.profile.avatar, class: 'profile-pic'
+    - else
+      = image_tag 'dummy_profile.png', class: 'profile-pic'
+    .profile-description
+      = current_user.account_id
+
+  .form-container
+    = form_with model: @post, url: posts_path, method: 'post', multipart: true do |f|
+      = f.text_field :content, placeholder: "What's on your mind?", class: 'text'
+      = f.file_field :images, multiple: true
+      = f.submit 'Post', class: 'btn-secondary'
