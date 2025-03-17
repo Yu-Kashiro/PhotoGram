@@ -1,15 +1,34 @@
+.header
+  .header-left
+    = link_to new_post_path do
+      = image_tag 'photo-camera.png'
+  .header-title index
+  .header-right
+
+
 .container
   -@posts.each do |post|
-    %p= post.user.account_id
-    %p= post.created_at
-    -# 投稿画像
-    -# いいね、コメント、シェア
-    -# 良いね数
-    %p= post.user.account_id
-    %p= post.content
+    .post-container
+      .profile-container
+        = image_tag post.user.profile.avatar, class: 'profile-pic'
+        .profile-description
+          .post-username= post.user.account_id
+          .post-time= time_ago_in_words(post.created_at) + " ago"
 
+      - if post.images.attached?
+        .post-images{ class: "grid-#{post.images.count}" }
+          - post.images.each do |image|
+            = image_tag image, class: "post-image"
 
+      .post-actions
+        = image_tag 'inactive-heart.png'
+        = image_tag 'comments.png'
+        = link_to "https://twitter.com/share?ref_src=twsrc%5Etfw", data: { show_count: false } do
+          = image_tag 'share.png'
 
-= link_to 'プロフィールページ', profile_path
-= link_to 'プロフィール編集ページ', edit_profile_path
-= link_to 'ログアウト', destroy_user_session_path, method: :delete
+      .likes
+        %span- 0 likes
+
+      .caption
+        %span.username= post.user.account_id
+        %span= post.content
