@@ -21,14 +21,18 @@
             = image_tag image, class: "post-image"
 
       .post-actions
-        = link_to post_like_path(post), method: 'post' do
-          = image_tag 'inactive-heart.png'
+        - if current_user.has_liked?(post)
+          = link_to post_like_path(post), method: 'delete' do
+            = image_tag 'active-heart.png'
+        - else
+          = link_to post_like_path(post), method: 'post' do
+            = image_tag 'inactive-heart.png'
         = image_tag 'comments.png'
         = link_to "https://twitter.com/share?ref_src=twsrc%5Etfw", data: { show_count: false } do
           = image_tag 'share.png'
 
       .likes
-        %span- 0 likes
+        %span= "#{post.likes.count} likes"
 
       .caption
         %span.username= post.user.account_id
