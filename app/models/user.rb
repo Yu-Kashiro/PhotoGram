@@ -31,6 +31,10 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :account_id, presence: true, uniqueness: true
 
+  def has_liked?(post)
+    likes.exists?(post_id: post.id)
+  end
+
   def prepare_profile
     profile || build_profile
   end

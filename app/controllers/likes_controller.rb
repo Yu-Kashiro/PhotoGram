@@ -7,11 +7,11 @@ class LikesController < ApplicationController
     redirect_to root_path
   end
 
-  # def destroy
-  #   @like = Like.find(params[:id])
-  #   @like.destroy
-  #   redirect_to @like.post, notice: 'You unliked the post'
-  # end
+  def destroy
+    like = current_user.likes.find_by(post_id: params[:post_id])
+    like.destroy!
+    redirect_to root_path
+  end
 
   private
 
