@@ -26,9 +26,14 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :account_id, presence: true, uniqueness: true
+
+  def has_liked?(post)
+    likes.exists?(post_id: post.id)
+  end
 
   def prepare_profile
     profile || build_profile
