@@ -9,7 +9,7 @@
   -@posts.each do |post|
     .post-container{data: {post_id: post.id}}
       .profile-container
-        = image_tag post.user.profile.avatar, class: 'profile-pic'
+        = image_tag post.user.profile.display_avatar, class: 'profile-pic'
         .profile-description
           .post-username= post.user.account_id
           .post-time= time_ago_in_words(post.created_at) + " ago"
