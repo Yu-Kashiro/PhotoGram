@@ -16,16 +16,71 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import $ from 'jquery';
+import $, { post } from 'jquery';
 import axios from 'axios'
-
 import { csrfToken } from 'rails-ujs'
-
-axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
-
 import * as ActiveStorage from "@rails/activestorage"
 ActiveStorage.start();
 
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
+
+
+document.addEventListener('turbolinks:load', () => {
+  const posts = $('.post-container');
+  posts.each((index, post) => {
+    const dataset = $(post).data()
+    const postId = dataset.postId
+    axios.get(`/posts/${postId}/like`)
+    .then((response) => {
+      const hasLiked = response.data.hasLiked
+      if (hasLiked) {
+        $('.active-heart').removeClass('hidden')
+      } else {
+        $('.inactive-heart').removeClass('hidden')
+      }
+    })
+  });
+
+  $('.inactive-heart').on('click', () => {
+    const postId = event.target.dataset.postId
+    axios.post(`/posts/${postId}/like`)
+    .then((response) => {
+      if (response.data.status === 'ok') {
+        $(`.active-heart[data-post-id="${postId}"]`).removeClass('hidden')
+        $(`.inactive-heart[data-post-id="${postId}"]`).addClass('hidden')
+        const likesCountElement = $(`.likes-count[data-post-id="${postId}"]`);
+        const currentLikesCount = parseInt(likesCountElement.text(), 10);
+        likesCountElement.text(`${currentLikesCount + 1} likes`);
+      }
+      })
+      .catch((e) => {
+        window.alert('Error')
+        console.log(e)
+      })
+  })
+
+  $('.active-heart').on('click', () => {
+    const postId = event.target.dataset.postId
+    axios.delete(`/posts/${postId}/like`)
+    .then((response) => {
+      if (response.data.status === 'ok') {
+        $(`.active-heart[data-post-id="${postId}"]`).addClass('hidden')
+        $(`.inactive-heart[data-post-id="${postId}"]`).removeClass('hidden')
+        const likesCountElement = $(`.likes-count[data-post-id="${postId}"]`);
+        const currentLikesCount = parseInt(likesCountElement.text(), 10);
+        likesCountElement.text(`${currentLikesCount - 1} likes`);
+      }
+      })
+      .catch((e) => {
+        window.alert('Error')
+        console.log(e)
+      })
+  })
+
+})
+
+
+// プロフィール写真関係
 document.addEventListener('turbolinks:load', () => {
   $('.profile-pic').on('click', () => {
     $('#profile-pic-input').click();
