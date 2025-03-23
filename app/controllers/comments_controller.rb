@@ -10,6 +10,12 @@ class CommentsController < ApplicationController
     @comment = post.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save
+
+    mentioned_account_id = @comment.content.scan(/@(\w+)/).uniq
+    mentioned_users = User.where(account_id: mentioned_account_id)
+    mentioned_users.each do |user|
+      ReplyMailer.new_reply_notification(@comment, user).deliver_later
+    end
     render json: @comment
   end
 
