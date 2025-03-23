@@ -1,0 +1,37 @@
+.comment-container {
+  padding: 20px 16px;
+}
+
+.comment-box {
+  padding: 10px;
+  display: flex;
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .comment-content {
+    display: flex;
+    flex-direction: column;
+    .comment-info {
+      display: flex;
+      justify-content: space-between;
+      .comment-user {
+        font-weight: bold;
+      }
+      .comment-date {
+        color: #999;
+      }
+    }
+    .comment-text {
+      margin-top: 10px;
+    }
+  }
+}
+
+.comment-form {
+  display: fixed;
+  bottom: 20px;
+  padding: 20px 16px;
+}

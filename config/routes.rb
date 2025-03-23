@@ -6,6 +6,7 @@ root to: 'posts#index'
 
 resources :posts do
   resource :like, only: [:show, :create, :destroy]
+  resources :comments, only: [:index, :new, :create, :destroy]
 end
 
 resource :profile, only: [:show, :edit, :update]

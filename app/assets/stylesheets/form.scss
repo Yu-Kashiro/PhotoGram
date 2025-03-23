@@ -12,6 +12,18 @@ label {
   font-size: 12px;
 }
 
+textarea {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 16px 24px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  background: rgba(244, 244, 244, 1);
+  &.sm {
+    min-height: 160px;
+  }
+}
+
 input.text, select.text {
   width: 100%;
   margin: 8px 0px;
