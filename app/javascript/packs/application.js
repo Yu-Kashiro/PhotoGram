@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -25,7 +24,7 @@ ActiveStorage.start();
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const posts = $('.post-container');
   posts.each((index, post) => {
     const dataset = $(post).data()

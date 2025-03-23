@@ -4,7 +4,7 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const postId = $('.comment-container').data('post-id');
   const profileImagePath = $('.comment-container').data('profile-image-path');
 
@@ -20,8 +20,11 @@ document.addEventListener('turbolinks:load', () => {
       $('.comment-container').append(
         `<div class="comment-box">
           <img src="${profileImagePath}" class="profile-image">
-          <div class="comment-content">${comment.user_id}</div>
-          <p>${comment.content}</p>
+          <div class="comment-content">
+            ${comment.user_id}
+            <br>
+            ${comment.content}
+          </div>
         </div>`
       )
     })
@@ -41,8 +44,11 @@ document.addEventListener('turbolinks:load', () => {
           $('.comment-container').append(
             `<div class="comment-box">
               <img src="${profileImagePath}" class="profile-image">
-              <div class="comment-content">${comment.user_id}</div>
-              <p>${comment.content}</p>
+              <div class="comment-content">
+                ${comment.user_id}
+                <br>
+                ${comment.content}
+              </div>
             </div>`
           )
           $('#comment_content').val('')
