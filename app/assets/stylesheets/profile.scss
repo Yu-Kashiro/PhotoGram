@@ -10,57 +10,36 @@
 }
 
 .profile-pic {
-  width: 50px;
-  height: 50px;
+  width: 77px;
+  height: 77px;
   border-radius: 50%;
   border: none;
   object-fit: cover;
 }
 
-.profile-description {
-  align-content: center;
-
-  .post-username {
-    font-weight: bold;
-  }
-  .post-time {
-    font-size: 12px;
-    color: #888;
-  }
-
-}
-
 .profile-stats {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 10px;
-}
+  margin-top: 40px;
+  margin-bottom: 40px;
 
-/* .stat {
-  text-align: center;
-}
+  .profile-stats-posts {
+    text-align: center;
+    width: 80px;
+    height: 50px;
+  }
 
-.stat span {
-  display: block;
-  font-weight: bold;
-  font-size: 16px;
-}
+  .profile-stats-followers {
+    text-align: center;
+    width: 80px;
+    height: 50px;
+  }
 
-.stat-label {
-  font-size: 12px;
-  color: #888;
+  .profile-stats-followings {
+    text-align: center;
+    width: 80px;
+    height: 50px;
+  }
 }
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-} */

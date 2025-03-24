@@ -3,6 +3,9 @@ class ProfilesController < ApplicationController
   before_action :set_profile
 
   def show
+    @post_count = current_user.posts.count
+    @followers_count = current_user.followers.count
+    @following_count = current_user.followings.count
   end
 
   def edit

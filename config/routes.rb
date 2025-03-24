@@ -14,5 +14,8 @@ resources :posts do
 end
 
 resource :profile, only: [:show, :edit, :update]
+resources :accounts, only: [:show] do
+  resources :follows, only: [:create]
+end
 
 end

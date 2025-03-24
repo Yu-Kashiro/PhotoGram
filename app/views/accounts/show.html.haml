@@ -5,10 +5,11 @@
   .header-title
     = current_user.account_id
   .header-right
+    follow
 
 .container
   .profile-header
-    - if @profile.avatar.attached?
+    - if @profile&.avatar&.attached?
       = image_tag @profile.avatar, class: "profile-pic", id: "profile-pic"
     - else
       = image_tag 'dummy_profile.png', class: "profile-pic", id: "profile-pic"
