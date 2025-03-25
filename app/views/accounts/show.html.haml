@@ -3,9 +3,9 @@
     = link_to :back, class: "back-button" do
       = image_tag 'back.png'
   .header-title
-    = current_user.account_id
+    = @user.account_id
   .header-right
-    follow
+    = link_to "Follow", account_follows_path(account_id: @user.id), method: :post
 
 .container
   .profile-header
