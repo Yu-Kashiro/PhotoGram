@@ -43,7 +43,15 @@ class User < ApplicationRecord
   end
 
   def prepare_profile
-    profile || build_profile
+    if profile
+      profile
+    else
+      profile = build_profile
+      profile.display_name = account_id
+      profile.save
+      profile
+    end
   end
 
 end
+

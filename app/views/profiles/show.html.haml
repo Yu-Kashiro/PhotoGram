@@ -13,7 +13,9 @@
     - else
       = image_tag 'dummy_profile.png', class: "profile-pic", id: "profile-pic"
 
-    %input{ type: "file", id: "profile-pic-input", style: "display: none;" }
+    %input{ type: "file", id: "profile-pic-input", style: "display: none;", accept: "image/jpeg, image/png, image/gif" }
+    .profile-header-display_name
+      = @profile.display_name
 
   .profile-stats
     .profile-stats-posts

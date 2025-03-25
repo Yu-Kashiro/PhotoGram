@@ -14,6 +14,7 @@ class ProfilesController < ApplicationController
   def update
     if params[:avatar].present?
       current_user.profile.avatar.attach(params[:avatar])  # 🔹 profile に avatar を設定
+      @profile.save
       render json: { message: 'アップロード成功', url: url_for(current_user.profile.avatar) }, status: :ok
     else
       render json: { error: 'ファイルがありません' }, status: :unprocessable_entity

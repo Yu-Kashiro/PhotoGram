@@ -1,12 +1,16 @@
-.profile-container {
-  display: flex;
-  gap: 20px;
-}
+// .profile-container {
+//   display: flex;
+//   gap: 20px;
+// }
 
 .profile-header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+  .profile-header-display_name {
+    
+  }
 }
 
 .profile-pic {
