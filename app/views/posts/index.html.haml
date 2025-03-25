@@ -2,22 +2,23 @@
   .header-left
     = link_to new_post_path do
       = image_tag 'photo-camera.png'
-  .header-title index
+  .header-title PhotoGram
   .header-right
+    = link_to 'Profile', profile_path
 
 .container
   -@posts.each do |post|
     .post-container{data: {post_id: post.id}}
-      .profile-container
-        = image_tag post.user.profile.display_avatar, class: 'profile-pic'
-        .profile-description
-          .post-username= post.user.account_id
-          .post-time= time_ago_in_words(post.created_at) + " ago"
+      = link_to account_path(post.user) do
+        .post-profile-container
+          = image_tag post.user.profile.display_avatar, class: 'post-profile-pic'
+          .post-profile-description
+            .post-username= post.user.account_id
+            .post-time= time_ago_in_words(post.created_at) + " ago"
 
-      - if post.images.attached?
-        .post-images{ class: "grid-#{post.images.count}" }
-          - post.images.each do |image|
-            = image_tag image, class: "post-image"
+      .post-images{ class: "grid-#{post.images.count}" }
+        - post.images.each do |image|
+          = image_tag image, class: "post-image"
 
       .post-actions
         .heart
