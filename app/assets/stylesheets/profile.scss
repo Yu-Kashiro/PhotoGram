@@ -1,7 +1,11 @@
-// .profile-container {
-//   display: flex;
-//   gap: 20px;
-// }
+.profile-container {
+  display: flex;
+  gap: 20px;
+  .profile-description {
+    display: flex;
+    align-items: center;
+  }
+}
 
 .profile-header {
   display: flex;
