@@ -4,11 +4,9 @@ import { csrfToken } from 'rails-ujs'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   const postId = $('.comment-container').data('post-id');
-  const profileImagePath = $('.comment-container').data('profile-image-path');
 
-  // 既存コメント表示時
   axios.get(`/posts/${postId}/comments`, {
     headers: {
       'Accept': 'application/json'
@@ -19,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     comments.forEach((comment) => {
       $('.comment-container').append(
         `<div class="comment-box">
-          <img src="${profileImagePath}" class="profile-image">
+          <img src="${comment.avatar_url}" class="profile-image">
           <div class="comment-content">
-            ${comment.user_id}
+            ${comment.account_id}
             <br>
             ${comment.content}
           </div>
@@ -43,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
           const comment = res.data
           $('.comment-container').append(
             `<div class="comment-box">
-              <img src="${profileImagePath}" class="profile-image">
+              <img src="${comment.avatar_url}" class="profile-image">
               <div class="comment-content">
-                ${comment.user_id}
+                ${comment.account_id}
                 <br>
                 ${comment.content}
               </div>
