@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
+require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -24,7 +25,7 @@ ActiveStorage.start();
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   const posts = $('.post-container');
   posts.each((index, post) => {
     const dataset = $(post).data()
@@ -34,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((response) => {
       const hasLiked = response.data.hasLiked
       if (hasLiked) {
-        $('.active-heart').removeClass('hidden')
+        $(`.active-heart[data-post-id="${postId}"]`).removeClass('hidden')
       } else {
-        $('.inactive-heart').removeClass('hidden')
+        $(`.inactive-heart[data-post-id="${postId}"]`).removeClass('hidden')
       }
     })
   });
