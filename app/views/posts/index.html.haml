@@ -37,3 +37,6 @@
       .caption
         %span.username= post.user.account_id
         %span= post.content
+
+.footer
+  = link_to 'Logout', destroy_user_session_path, method: :delete
