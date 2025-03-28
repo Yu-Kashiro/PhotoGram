@@ -5,7 +5,8 @@
   .header-title
     = @user.account_id
   .header-right
-    = link_to "Follow", account_follows_path(account_id: @user.id), method: :post
+    = link_to "Unfollow", account_unfollows_path(account_id: @user.id), method: :post, class: "unfollow-button hidden"
+    = link_to "Follow", account_follows_path(account_id: @user.id), method: :post, class: "follow-button hidden"
 
 .container
   .profile-header
@@ -27,6 +28,4 @@
       %h4 Followings
       = @following_count
 
-= javascript_pack_tag 'profile'
-
-
+= javascript_pack_tag 'account'
