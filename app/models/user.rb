@@ -38,6 +38,10 @@ class User < ApplicationRecord
     following_relationships.find_by!(following_id: user.id).destroy
   end
 
+  def has_followed?(user)
+    followings.exists?(user.id)
+  end
+
   def has_liked?(post)
     likes.exists?(post_id: post.id)
   end

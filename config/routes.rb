@@ -15,7 +15,8 @@ end
 
 resource :profile, only: [:show, :edit, :update]
 resources :accounts, only: [:show] do
-  resources :follows, only: [:create]
+  resource :follows, only: [:show, :create]
+  resource :unfollows, only: [:create]
 end
 
 end
