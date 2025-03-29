@@ -21,10 +21,10 @@ class CommentsController < ApplicationController
 
   def index
     @post = Post.find(params[:post_id])
-    @comments = @post.comments
+    comments = @post.comments
     respond_to do |format|
-      format.html # デフォルトでindex.html.erbを表示
-      format.json { render json: @comments }
+      format.html
+      format.json { render json: comments }
     end
   end
 

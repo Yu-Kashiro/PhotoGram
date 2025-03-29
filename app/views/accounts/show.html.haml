@@ -1,21 +1,21 @@
-.header
+.header{data: { account_id: @user.id}}
   .header-left
     = link_to :back, class: "back-button" do
       = image_tag 'back.png'
   .header-title
-    = current_user.account_id
+    = @user.account_id
   .header-right
+    .unfollow-button.hidden Unfollow
+    .follow-button.hidden Follow
 
 .container
   .profile-header
-    - if @profile.avatar.attached?
+    - if @profile&.avatar&.attached?
       = image_tag @profile.avatar, class: "profile-pic", id: "profile-pic"
     - else
       = image_tag 'dummy_profile.png', class: "profile-pic", id: "profile-pic"
 
-    %input{ type: "file", id: "profile-pic-input", style: "display: none;", accept: "image/jpeg, image/png, image/gif" }
-    .profile-header-display_name
-      = current_user.profile.display_name
+    %input{ type: "file", id: "profile-pic-input", style: "display: none;" }
 
   .profile-stats
     .profile-stats-posts
@@ -23,11 +23,9 @@
       = @post_count
     .profile-stats-followers
       %h4 Followers
-      = @followers_count
+      %span{class: "followers-count"}= @followers_count
     .profile-stats-followings
       %h4 Followings
       = @following_count
 
-= javascript_pack_tag 'profile'
-
-
+= javascript_pack_tag 'account'
