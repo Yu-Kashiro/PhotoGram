@@ -9,7 +9,7 @@
 .container
   -@posts.each do |post|
     .post-container{data: {post_id: post.id}}
-      = link_to account_path(post.user) do
+      = link_to account_path(post.user), data: {"turbolinks" => false} do
         .post-profile-container
           = image_tag post.user.profile.display_avatar, class: 'post-profile-pic'
           .post-profile-description
