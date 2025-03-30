@@ -1,0 +1,24 @@
+.follow-container {
+  padding: 20px 16px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.follow-box {
+  padding: 10px;
+  display: flex;
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .follow-content {
+    display: flex;
+    flex-direction: column;
+    .follow-login-time {
+      font-size: 14px;
+      color: #999;
+    }
+  }
+}
