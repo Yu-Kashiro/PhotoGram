@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = current_user.followings_posts
+    posts = current_user.followings_posts
+    @timeline_posts = posts.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').limit(5)
   end
 
   def new
