@@ -57,5 +57,8 @@ class User < ApplicationRecord
     end
   end
 
-end
+  def followings_posts
+    Post.where(user_id: followings.pluck(:id)).order(created_at: :desc)
+  end
 
+end
