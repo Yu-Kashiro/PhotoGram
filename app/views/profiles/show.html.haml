@@ -1,6 +1,6 @@
 .header
   .header-left
-    = link_to :back, class: "back-button" do
+    = link_to 'javascript:history.back()', class: "back-button" do
       = image_tag 'back.png'
   .header-title
     = current_user.account_id
@@ -21,10 +21,10 @@
     .profile-stats-posts
       %h4 Posts
       = @post_count
-    .profile-stats-followers
+    = link_to profile_followers_path, class: 'profile-stats-followers' do
       %h4 Followers
       = @followers_count
-    .profile-stats-followings
+    = link_to profile_followings_path, class: 'profile-stats-followings' do
       %h4 Followings
       = @following_count
 
