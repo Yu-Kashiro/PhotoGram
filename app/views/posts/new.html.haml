@@ -14,7 +14,11 @@
       = current_user.account_id
 
   .form-container
-    = form_with model: @post, url: posts_path, method: 'post', multipart: true do |f|
+    = form_with model: @post, url: posts_path, method: 'post', multipart: true, local: true do |f|
       = f.text_field :content, placeholder: "What's on your mind?", class: 'text'
       = f.file_field :images, multiple: true
       = f.submit 'Post', class: 'btn-secondary'
+
+  .error-messages
+    - @post.errors.full_messages.each do |message|
+      %li= message

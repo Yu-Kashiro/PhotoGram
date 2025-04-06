@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
+    posts = current_user.followings_posts
+    @timeline_posts = posts.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').limit(5)
   end
 
   def new
@@ -10,8 +11,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.build(post_params)
-    if post.save
+    @post = current_user.posts.build(post_params)
+    if @post.save
       redirect_to posts_path
     else
       render :new

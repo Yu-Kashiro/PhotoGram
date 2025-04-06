@@ -7,7 +7,7 @@
     = link_to 'Profile', profile_path
 
 .container
-  -@posts.each do |post|
+  -@timeline_posts.each do |post|
     .post-container{data: {post_id: post.id}}
       = link_to account_path(post.user), data: {"turbolinks" => false} do
         .post-profile-container
