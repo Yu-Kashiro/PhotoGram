@@ -6,7 +6,7 @@
 
 .container
   .profile-container
-    - if current_user.profile.avatar.attached?
+    - if current_user.profile&.avatar&.attached?
       = image_tag current_user.profile.avatar, class: 'profile-pic'
     - else
       = image_tag 'dummy_profile.png', class: 'profile-pic'
