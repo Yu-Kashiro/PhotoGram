@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    content { Faker::Lorem.sentence(word_count: 3) }
+    content { Faker::Lorem.sentence(word_count: 5) }
 
     after(:build) do |post|
       post.images.attach(
