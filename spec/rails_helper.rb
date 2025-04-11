@@ -69,4 +69,5 @@ RSpec.configure do |config|
   # ControllerスペックでDeviseのヘルパーを使用（必要に応じて）
   config.include Devise::Test::ControllerHelpers, type: :controller
 
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end
