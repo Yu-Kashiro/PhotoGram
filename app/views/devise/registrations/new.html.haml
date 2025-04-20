@@ -16,3 +16,5 @@
       = f.password_field :password, autocomplete: "new-password", class: 'text'
     .actions
       = f.submit "CREATE ACCOUNT", class: 'btn-primary'
+    .option
+      = render "devise/shared/links"

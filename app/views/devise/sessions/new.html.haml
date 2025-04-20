@@ -9,7 +9,8 @@
       = f.label :password
       %br/
       = f.password_field :password, autocomplete: "current-password", class: 'text'
-    .option
-      = render "devise/shared/links"
     .actions
       = f.submit "LOGIN", class: 'btn-primary'
+    .option
+      = render "devise/shared/links"
+
