@@ -6,7 +6,7 @@ ActiveStorage.start();
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   $('.profile-pic').on('click', () => {
     $('#profile-pic-input').click();
   });

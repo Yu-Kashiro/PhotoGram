@@ -6,7 +6,7 @@ ActiveStorage.start();
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const headerData = $('.header');
   const dataset = headerData.data()
   const accountId = dataset.accountId
