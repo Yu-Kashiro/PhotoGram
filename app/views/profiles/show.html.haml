@@ -5,6 +5,7 @@
   .header-title
     = current_user.account_id
   .header-right
+    = link_to 'Logout', destroy_user_session_path, method: :delete
 
 .container
   .profile-header
