@@ -51,3 +51,15 @@
     height: 50px;
   }
 }
+
+.profile-post-images {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.profile-post-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}

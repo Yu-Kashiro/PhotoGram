@@ -29,6 +29,11 @@
       %h4 Followings
       = @following_count
 
+  .profile-post-images
+    - @user_posts.each do |post|
+      = link_to post_path(post) do
+        = image_tag post.images.first
+
 = javascript_pack_tag 'profile'
 
 
