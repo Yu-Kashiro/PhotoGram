@@ -3,7 +3,11 @@ class PostsController < ApplicationController
 
   def index
     posts = current_user.followings_posts
-    @timeline_posts = posts.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').limit(5)
+    posts_with_many_likes = posts.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC').limit(5)
+    random_posts = Post.where.not(id: posts_with_many_likes)
+                       .where.not(user_id: current_user.id)
+                       .order('RANDOM()').limit(5)
+    @timeline_posts = posts_with_many_likes + random_posts
   end
 
   def new

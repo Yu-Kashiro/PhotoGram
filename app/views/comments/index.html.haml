@@ -1,6 +1,7 @@
 .header
   .header-left
-    = link_to 'back', root_path, class: 'back-button'
+    = link_to 'javascript:history.back()', class: "back-button" do
+      = image_tag 'back.png'
   .header-title Comment
 
 .comment-container{data: {post_id: @post.id}}
