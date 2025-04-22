@@ -1,0 +1,39 @@
+.header
+  .header-left
+    = link_to 'javascript:history.back()', class: "back-button" do
+      = image_tag 'back.png'
+  .header-title
+  .header-right
+
+.container
+  .post-container{data: {post_id: @post.id}}
+    = link_to account_path(@post.user), data: {"turbolinks" => false} do
+      .post-profile-container
+        = image_tag @post.user.profile.display_avatar, class: 'post-profile-pic'
+        .post-profile-description
+          .post-username= @post.user.account_id
+          .post-time= time_ago_in_words(@post.created_at) + " ago"
+
+    .post-images{ class: "grid-#{@post.images.count}" }
+      - @post.images.each do |image|
+        = image_tag image, class: "post-image"
+
+    .post-actions
+      .heart
+        = image_tag 'active-heart.png', class: 'like-button active-heart hidden', data: { post_id: @post.id }
+        = image_tag 'inactive-heart.png', class: 'like-button inactive-heart hidden', data: { post_id: @post.id }
+      .comment-button
+        = link_to post_comments_path(@post) do
+          = image_tag 'comments.png'
+      .share-button
+        = link_to "https://twitter.com/share?ref_src=twsrc%5Etfw", data: { show_count: false } do
+          = image_tag 'share.png'
+
+    .likes
+      %span{ data: { post_id: @post.id }, class: 'likes-count' }= "#{@post.likes.count} likes"
+
+    .caption
+      %span.username= @post.user.account_id
+      %span= @post.content
+
+= javascript_pack_tag 'post.js'
