@@ -1,4 +1,4 @@
-import $, { post } from 'jquery';
+import $ from 'jquery';
 import axios from 'axios'
 import { csrfToken } from 'rails-ujs'
 import * as ActiveStorage from "@rails/activestorage"
@@ -6,9 +6,8 @@ ActiveStorage.start();
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-
+// ページが読み込まれたときに実行される処理
 document.addEventListener("DOMContentLoaded", () => {
-  console.log('Post page loaded');
   const posts = $('.post-container');
   posts.each((index, post) => {
     const dataset = $(post).data()
@@ -33,8 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
         $(`.active-heart[data-post-id="${postId}"]`).removeClass('hidden')
         $(`.inactive-heart[data-post-id="${postId}"]`).addClass('hidden')
         const likesCountElement = $(`.likes-count[data-post-id="${postId}"]`);
+        const likesText = likesCountElement.data('likes-text');
         const currentLikesCount = parseInt(likesCountElement.text(), 10);
-        likesCountElement.text(`${currentLikesCount + 1} likes`);
+        likesCountElement.text(`${currentLikesCount + 1} ${likesText}`);
       }
       })
       .catch((e) => {
@@ -51,8 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
         $(`.active-heart[data-post-id="${postId}"]`).addClass('hidden')
         $(`.inactive-heart[data-post-id="${postId}"]`).removeClass('hidden')
         const likesCountElement = $(`.likes-count[data-post-id="${postId}"]`);
+        const likesText = likesCountElement.data('likes-text');
         const currentLikesCount = parseInt(likesCountElement.text(), 10);
-        likesCountElement.text(`${currentLikesCount - 1} likes`);
+        likesCountElement.text(`${currentLikesCount - 1} ${likesText}`);
       }
       })
       .catch((e) => {

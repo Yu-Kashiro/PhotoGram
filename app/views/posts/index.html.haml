@@ -4,7 +4,7 @@
       = image_tag 'photo-camera.png'
   .header-title PhotoGram
   .header-right
-    = link_to 'Profile', profile_path
+    = link_to I18n.t('profile'), profile_path
 
 .container
   -@timeline_posts.each do |post|
@@ -14,7 +14,7 @@
           = image_tag post.user.profile.display_avatar, class: 'post-profile-pic'
           .post-profile-description
             .post-username= post.user.account_id
-            .post-time= time_ago_in_words(post.created_at) + " ago"
+            .post-time= time_ago_in_words(post.created_at) + I18n.t('ago')
 
       .post-images{ class: "grid-#{post.images.count}" }
         - post.images.each do |image|
@@ -32,7 +32,7 @@
             = image_tag 'share.png'
 
       .likes
-        %span{ data: { post_id: post.id }, class: 'likes-count' }= "#{post.likes.count} likes"
+        %span{ data: { post_id: post.id, likes_text: I18n.t('likes') }, class: 'likes-count' }= "#{post.likes.count} #{I18n.t('likes')}"
 
       .caption
         %span.username= post.user.account_id
