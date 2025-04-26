@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
     @post_count = current_user.posts.count
     @followers_count = current_user.followers.count
     @following_count = current_user.followings.count
+    @user_posts = current_user.posts.order(created_at: :desc)
   end
 
   def edit

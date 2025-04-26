@@ -1,8 +1,9 @@
 .header
   .header-left
-    = link_to 'cancel', posts_path, class: 'back-button'
-  .header-title Status
-  .header-right test
+    = link_to I18n.t('cancel'), posts_path, class: 'back-button'
+  .header-title
+    = I18n.t('new_post')
+  .header-right
 
 .container
   .profile-container
@@ -15,9 +16,9 @@
 
   .form-container
     = form_with model: @post, url: posts_path, method: 'post', multipart: true, local: true do |f|
-      = f.text_field :content, placeholder: "What's on your mind?", class: 'text'
+      = f.text_field :content, placeholder: I18n.t('post_placeholder'), class: 'text'
       = f.file_field :images, multiple: true
-      = f.submit 'Post', class: 'btn-secondary'
+      = f.submit I18n.t('post'), class: 'btn-secondary'
 
   .error-messages
     - @post.errors.full_messages.each do |message|

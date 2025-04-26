@@ -5,11 +5,12 @@
   .header-title Followers
 
 - @followers.each do |follower|
-  .follow-container
-    .follow-box
-      = image_tag follower.profile.display_avatar, class: 'profile-image'
-      .follow-content
-        .follow-name
-          = follower.account_id
-        .follow-login-time
-          %span Last seen 3 hours ago
+  = link_to account_path(follower) do
+    .follow-container
+      .follow-box
+        = image_tag follower.profile.display_avatar, class: 'profile-image'
+        .follow-content
+          .follow-name
+            = follower.account_id
+          .follow-login-time
+            %span Last seen 3 hours ago

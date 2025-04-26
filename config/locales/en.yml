@@ -30,4 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  profile: "profile"
+  ago: " ago"
+  likes: "likes"
+  new_post: "New Post"
+  cancel: "Cancel"
+  post: "Post"
+  post_placeholder: "What's on your mind?"
+  log_out: "Log out"
+  posts: "Posts"
+  followers: "Followers"
+  followings: "Following"
+  comment: "Comment"
+  add_comment: "Add Comment"

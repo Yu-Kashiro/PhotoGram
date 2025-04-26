@@ -1,13 +1,15 @@
 .header
   .header-left
-    = link_to 'back', root_path, class: 'back-button'
-  .header-title Comment
+    = link_to 'javascript:history.back()', class: "back-button" do
+      = image_tag 'back.png'
+  .header-title
+    = I18n.t('comment')
 
 .comment-container{data: {post_id: @post.id}}
 
 .comment-form
   = text_area_tag :comment_content
-  .button-secondary.add-comment-button
-    コメントを追加
+  .btn-secondary
+    = I18n.t('add_comment')
 
 = javascript_pack_tag 'comment.js'

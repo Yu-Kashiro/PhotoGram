@@ -5,6 +5,7 @@
   .header-title
     = current_user.account_id
   .header-right
+    = link_to I18n.t('log_out'), destroy_user_session_path, method: :delete
 
 .container
   .profile-header
@@ -19,14 +20,25 @@
 
   .profile-stats
     .profile-stats-posts
-      %h4 Posts
+      %h4 #{I18n.t('posts')}
       = @post_count
     = link_to profile_followers_path, class: 'profile-stats-followers' do
-      %h4 Followers
+      %h4 #{I18n.t('followers')}
       = @followers_count
     = link_to profile_followings_path, class: 'profile-stats-followings' do
-      %h4 Followings
+      %h4 #{I18n.t('followings')}
       = @following_count
+
+  .profile-post-images
+    - @user_posts.each do |post|
+      = link_to post_path(post) do
+        = image_tag post.images.first
+
+  .footer-container
+    - if I18n.locale == :en
+      = link_to '日本語に切り替え', url_for(locale: :ja)
+    - else
+      = link_to 'Switch to English', url_for(locale: :en)
 
 = javascript_pack_tag 'profile'
 
