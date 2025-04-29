@@ -10,6 +10,6 @@
 .comment-form
   = text_area_tag :comment_content
   .btn-secondary
-    = I18n.t('add_comment')
+    = button_tag I18n.t('add_comment'), class: 'add-comment-button'
 
 = javascript_pack_tag 'comment.js'
