@@ -20,7 +20,7 @@ RSpec.describe 'Posts', type: :system do
 
     it 'Post一覧が表示される' do
       visit root_path
-      expect(page).to have_css('.post-container', count: 5)
+      expect(page).to have_css('.post-container', count: 10)
       expect(page).to have_css('.post-image')
     end
   end

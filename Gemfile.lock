@@ -121,6 +121,7 @@ GEM
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.1)
+    foreman (0.88.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     haml (6.3.0)
@@ -374,6 +375,7 @@ DEPENDENCIES
   erb2haml
   factory_bot_rails (= 5.1.1)
   faker
+  foreman
   hamlit
   jbuilder (~> 2.7)
   letter_opener

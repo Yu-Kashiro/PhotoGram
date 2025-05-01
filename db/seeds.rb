@@ -42,7 +42,7 @@ users.each do |user|
   "https://picsum.photos/400/400/?random"
   ]
   2.times do
-    post = user.posts.create!(content: Faker::Lorem.sentence(word_count: 3))
+    post = user.posts.new(content: Faker::Lorem.sentence(word_count: 3))
     image_urls.each_with_index do |url, i|
       post.images.attach(
         io: URI.open(url),
@@ -50,6 +50,7 @@ users.each do |user|
         content_type: 'image/jpeg'
       )
     end
+    post.save!
   end
 end
 
