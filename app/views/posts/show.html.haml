@@ -30,7 +30,7 @@
           = image_tag 'share.png'
 
     .likes
-      %span{ data: { post_id: @post.id }, class: 'likes-count' }= "#{@post.likes.count} likes"
+      %span{ data: { post_id: @post.id, likes_text: I18n.t('likes') }, class: 'likes-count' }= "#{@post.likes.count} #{I18n.t('likes')}"
 
     .caption
       %span.username= @post.user.account_id
