@@ -2,7 +2,8 @@
   .header-left
     = link_to 'javascript:history.back()', class: "back-button" do
       = image_tag 'back.png'
-  .header-title Followings
+  .header-title
+    = I18n.t('followings')
 
 - @followings.each do |following|
   = link_to account_path(following) do
@@ -13,4 +14,4 @@
           .follow-name
             = following.account_id
           .follow-login-time
-            %span Last seen 3 hours ago
+            %span #{I18n.t('login_time')}
