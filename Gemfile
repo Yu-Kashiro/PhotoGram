@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.7'
+ruby '3.2.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1', '>= 6.1.7.10'
@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'faker'
 gem 'hamlit'
 gem 'sidekiq'
+gem 'psych', '< 4'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
