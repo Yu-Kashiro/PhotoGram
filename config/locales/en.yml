@@ -43,3 +43,6 @@ en:
   followings: "Following"
   comment: "Comment"
   add_comment: "Add Comment"
+  follow: "Follow"
+  unfollow: "Unfollow"
+  login_time: "Last seen 3 hours ago"

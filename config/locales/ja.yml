@@ -206,3 +206,6 @@ ja:
   followings: "フォロー中"
   comment: "コメント"
   add_comment: "コメントを追加"
+  follow: "フォロー"
+  unfollow: "フォロー解除"
+  login_time: "3時間前にログイン"

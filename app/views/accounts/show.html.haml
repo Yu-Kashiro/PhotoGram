@@ -5,8 +5,10 @@
   .header-title
     = @user.account_id
   .header-right
-    .unfollow-button.hidden Unfollow
-    .follow-button.hidden Follow
+    .unfollow-button.hidden
+      = I18n.t('unfollow')
+    .follow-button.hidden
+      = I18n.t('follow')
 
 .container
   .profile-header
@@ -19,13 +21,13 @@
 
   .profile-stats
     .profile-stats-posts
-      %h4 Posts
+      %h4 #{I18n.t('posts')}
       = @post_count
     = link_to account_followers_path(@user), class: 'profile-stats-followers' do
-      %h4 Followers
+      %h4 #{I18n.t('followers')}
       %span{class: "followers-count"}= @followers_count
     = link_to account_followings_path(@user), class: 'profile-stats-followings' do
-      %h4 Followings
+      %h4 #{I18n.t('followings')}
       = @following_count
 
 = javascript_pack_tag 'account'

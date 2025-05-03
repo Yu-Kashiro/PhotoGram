@@ -12,7 +12,7 @@
         = image_tag @post.user.profile.display_avatar, class: 'post-profile-pic'
         .post-profile-description
           .post-username= @post.user.account_id
-          .post-time= time_ago_in_words(@post.created_at) + " ago"
+          .post-time= time_ago_in_words(@post.created_at) + I18n.t('ago')
 
     .post-images{ class: "grid-#{@post.images.count}" }
       - @post.images.each do |image|
