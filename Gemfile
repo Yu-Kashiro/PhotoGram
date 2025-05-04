@@ -27,6 +27,7 @@ gem 'hamlit'
 gem 'sidekiq'
 gem 'psych', '< 4'
 gem 'aws-sdk-s3', require: false
+gem 'active_model_serializers'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -50,7 +51,6 @@ group :development do
   gem 'listen'
   gem 'web-console'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'active_model_serializers'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
