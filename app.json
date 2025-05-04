@@ -1,0 +1,16 @@
+{
+  "name": "PhotoGram",
+  "description": "PhotoGram",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/Yu-Kashiro/PhotoGram",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}

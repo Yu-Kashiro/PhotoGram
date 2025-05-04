@@ -26,6 +26,7 @@ gem 'faker'
 gem 'hamlit'
 gem 'sidekiq'
 gem 'psych', '< 4'
+gem 'aws-sdk-s3', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -41,7 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'factory_bot_rails'
-
+  gem 'dotenv-rails'
 end
 
 group :development do
