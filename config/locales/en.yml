@@ -46,3 +46,9 @@ en:
   follow: "Follow"
   unfollow: "Unfollow"
   login_time: "Last seen 3 hours ago"
+  profiles:
+    update:
+      success: "Upload successful"
+  errors:
+    messages:
+      file_not_found: "File not found"
