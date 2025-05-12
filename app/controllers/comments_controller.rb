@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
 
   def new
     post = Post.find(params[:post_id])
@@ -12,11 +11,13 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
 
+    # メンションされたユーザーがいる場合は、通知を送信
     mentioned_account_id = @comment.content.scan(/@(\w+)/).uniq
     mentioned_users = User.where(account_id: mentioned_account_id)
-    mentioned_users.each do |user|
-      ReplyMailer.new_reply_notification(@comment, user).deliver_later
+    mentioned_users.each do |mentioned_user|
+      ReplyMailer.new_reply_notification(@comment, mentioned_user).deliver_later
     end
+
     render json: @comment
   end
 
