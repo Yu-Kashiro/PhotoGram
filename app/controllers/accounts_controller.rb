@@ -12,6 +12,7 @@ class AccountsController < ApplicationController
     @post_count = @user.posts.count
     @followers_count = @user.followers.count
     @following_count = @user.followings.count
+    @user_posts = @user.posts.order(created_at: :desc)
   end
 
 end
