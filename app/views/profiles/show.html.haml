@@ -5,14 +5,11 @@
   .header-title
     = current_user.account_id
   .header-right
-    = link_to I18n.t('log_out'), destroy_user_session_path, method: :delete
+    = link_to I18n.t('log_out'), destroy_user_session_path
 
 .container
   .profile-header
-    - if @profile.avatar.attached?
-      = image_tag @profile.avatar, class: "profile-pic", id: "profile-pic"
-    - else
-      = image_tag 'dummy_profile.png', class: "profile-pic", id: "profile-pic"
+    = image_tag current_user.profile.display_avatar, class: "profile-pic", id: "profile-pic"
 
     %input{ type: "file", id: "profile-pic-input", style: "display: none;", accept: "image/jpeg, image/png, image/gif" }
     .profile-header-display_name
