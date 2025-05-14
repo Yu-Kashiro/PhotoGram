@@ -14,10 +14,11 @@ class CommentSerializer < ActiveModel::Serializer
 
   def avatar_url
     comment_user = User.find(object.user_id)
+    host = Rails.application.config.host_name
     if comment_user.profile.avatar.attached?
-      Rails.application.routes.url_helpers.rails_blob_url(comment_user.profile.avatar, host: "http://localhost:3000")
+      Rails.application.routes.url_helpers.rails_blob_url(comment_user.profile.avatar, host: host)
     else
-      ActionController::Base.helpers.asset_url('dummy_profile.png', host: "http://localhost:3000")
+      ActionController::Base.helpers.asset_url('dummy_profile.png', host: host)
     end
   end
 

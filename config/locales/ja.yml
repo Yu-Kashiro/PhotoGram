@@ -209,3 +209,9 @@ ja:
   follow: "フォロー"
   unfollow: "フォロー解除"
   login_time: "3時間前にログイン"
+  profiles:
+    update:
+      success: "アップロード成功"
+  errors:
+    messages:
+      file_not_found: "ファイルが見つかりません"

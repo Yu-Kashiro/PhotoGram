@@ -28,7 +28,7 @@
           = link_to post_comments_path(post) do
             = image_tag 'comments.png'
         .share-button
-          = link_to "https://twitter.com/share?ref_src=twsrc%5Etfw", data: { show_count: false } do
+          = link_to "https://twitter.com/intent/tweet?url=#{post_url(post)}", target: "_blank", rel: "noopener", data: { show_count: false } do
             = image_tag 'share.png'
 
       .likes
